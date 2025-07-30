@@ -2,11 +2,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { SignInButton, SignUpButton, UserButton, useAuth } from '@clerk/clerk-react';
 
 const Navbar = () => {
-  const { isSignedIn } = useAuth();
-  
   return (
     <header className="py-4 relative z-10">
       <div className="container px-4 mx-auto">
@@ -43,23 +40,6 @@ const Navbar = () => {
                 Pricing
               </Button>
             </Link>
-            
-            {isSignedIn ? (
-              <UserButton afterSignOutUrl="/" />
-            ) : (
-              <>
-                <SignInButton mode="modal">
-                  <Button variant="ghost" size="sm" className="text-gray-600 hover:text-gray-900">
-                    Sign in
-                  </Button>
-                </SignInButton>
-                <SignUpButton mode="modal">
-                  <Button size="sm" className="bg-white border border-gray-200 text-gray-800 hover:bg-gray-100 shadow-sm rounded-full px-5">
-                    Sign up
-                  </Button>
-                </SignUpButton>
-              </>
-            )}
           </div>
         </div>
       </div>
